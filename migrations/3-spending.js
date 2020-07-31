@@ -1,7 +1,7 @@
 "use strict";
 module.exports = {
     up: (queryInterface, Sequelize) => {
-        return queryInterface.createTable("Summarize", {
+        return queryInterface.createTable("spending", {
             id: {
                 allowNull: false,
                 autoIncrement: true,
@@ -12,8 +12,16 @@ module.exports = {
                 type: Sequelize.INTEGER,
                 references: { model: "Users", key: "id" },
             },
-            sumPrice: {
+            amountUseField: {
                 type: Sequelize.INTEGER,
+                defaultValue: 0
+            },
+            amountOrder: {
+                type: Sequelize.INTEGER,
+                defaultValue: 0
+            },
+            time: {
+                type: Sequelize.DATE,
             },
             createdAt: {
                 allowNull: false,
@@ -26,6 +34,6 @@ module.exports = {
         });
     },
     down: (queryInterface, Sequelize) => {
-        return queryInterface.dropTable("Summarize");
+        return queryInterface.dropTable("spending");
     },
 };

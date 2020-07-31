@@ -7,15 +7,16 @@ module.exports = {
         for (let i = 1; i <= 10; i++) {
             data.push({
                 userId: i,
-                sumPrice: i,
+                amountUseField: 0,
+                amountOrder:0,
                 createdAt: new Date(),
                 updatedAt: new Date()
             });
         }
-        return queryInterface.bulkInsert("Summarize", data, {});
+        return queryInterface.bulkInsert("spending", data, {});
     },
 
     down: (queryInterface, Sequelize) => {
-        return queryInterface.bulkDelete("Summarize", null, {});
+        return queryInterface.bulkDelete("spending", null, {});
     },
 };

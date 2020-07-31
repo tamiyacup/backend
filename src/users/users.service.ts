@@ -32,7 +32,10 @@ export class UsersService {
             Tel: req.body.Tel,
         };
 
-        Users.create(userData);
+        Users.create(userData).then((user) => {
+            
+        });
+
         return res.status(this.status).json(this.status);
     }
 
