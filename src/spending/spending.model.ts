@@ -7,11 +7,12 @@ import {
     HasMany,
     HasOne,
 } from "sequelize-typescript";
-import {Spending} from '../spending/spending.model'
+import { Users } from "../users/users.model";
 @Table
-export class Users extends Model<Users> {
+export class Spending extends Model<Spending> {
+    @ForeignKey(() => Users)
     @Column
-    firstName: string;
+    userId: number;
 
     @Column
     nickName: string;
@@ -24,7 +25,6 @@ export class Users extends Model<Users> {
 
     @Column
     Tel: string;
-
-    @HasMany(() => Spending)
-    spending: Spending[];
+    @BelongsTo(() => Users)
+    users : Users;
 }
