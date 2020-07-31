@@ -1,15 +1,19 @@
 "use strict";
 module.exports = {
     up: (queryInterface, Sequelize) => {
-        return queryInterface.createTable("Statuses", {
+        return queryInterface.createTable("Summarize", {
             id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER,
             },
-            name: {
-                type: Sequelize.STRING,
+            userId: {
+                type: Sequelize.INTEGER,
+                references: { model: "Users", key: "id" },
+            },
+            sumPrice: {
+                type: Sequelize.INTEGER,
             },
             createdAt: {
                 allowNull: false,
@@ -22,6 +26,6 @@ module.exports = {
         });
     },
     down: (queryInterface, Sequelize) => {
-        return queryInterface.dropTable("Statuses");
+        return queryInterface.dropTable("Summarize");
     },
 };

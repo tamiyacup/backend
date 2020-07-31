@@ -6,18 +6,18 @@ module.exports = {
         const data = [];
         for (let i = 1; i <= 10; i++) {
             data.push({
-                userId:i,
-                position: faker.name.jobTitle(),
-                salary: faker.random.number(),
-                address: faker.address.secondaryAddress(),
+                userId: i,
+                price: i,
+                hour: i,
+                time: new Date(),
                 createdAt: new Date(),
                 updatedAt: new Date()
             });
         }
-        return queryInterface.bulkInsert("Careers", data, {});
+        return queryInterface.bulkInsert("Spending", data, {});
     },
 
     down: (queryInterface, Sequelize) => {
-        return queryInterface.bulkDelete("Careers", null, {});
+        return queryInterface.bulkDelete("Spending", null, {});
     },
 };

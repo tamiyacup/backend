@@ -18,29 +18,10 @@ module.exports = {
             lastName: {
                 type: Sequelize.STRING,
             },
-            dateBelieve: {
-                type: Sequelize.DATEONLY,
-            },
             Age: {
                 type: Sequelize.INTEGER,
             },
             Tel: {
-                allowNull: true,
-                type: Sequelize.STRING,
-            },
-            facebook: {
-                allowNull: true,
-                type: Sequelize.STRING,
-            },
-            ability: {
-                allowNull: true,
-                type: Sequelize.STRING,
-            },
-            pictureProfile: {
-                allowNull: true,
-                type: Sequelize.STRING,
-            },
-            Address: {
                 allowNull: true,
                 type: Sequelize.STRING,
             },

@@ -1,7 +1,7 @@
 "use strict";
 module.exports = {
     up: (queryInterface, Sequelize) => {
-        return queryInterface.createTable("UsersRelations", {
+        return queryInterface.createTable("Spending", {
             id: {
                 allowNull: false,
                 autoIncrement: true,
@@ -12,17 +12,14 @@ module.exports = {
                 type: Sequelize.INTEGER,
                 references: { model: "Users", key: "id" },
             },
-            careerId: {
+            hour: {
                 type: Sequelize.INTEGER,
-                references: { model: "Careers", key: "id" },
             },
-            groupId: {
+            price: {
                 type: Sequelize.INTEGER,
-                references: { model: "Groups", key: "id" },
             },
-            statusId: {
-                type: Sequelize.INTEGER,
-                references: { model: "Statuses", key: "id" },
+            time: {
+                type: Sequelize.DATE,
             },
             createdAt: {
                 allowNull: false,
@@ -35,6 +32,6 @@ module.exports = {
         });
     },
     down: (queryInterface, Sequelize) => {
-        return queryInterface.dropTable("UsersRelations");
+        return queryInterface.dropTable("Statuses");
     },
 };
