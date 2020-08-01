@@ -99,7 +99,22 @@ export class UsersService {
 
     async search(word: string, res: any): Promise<Users[]> {
         console.log(`word=${word}`);
-        const result = await Users.findAll();
+        const result = await Users.findAll({
+            include: [
+                {
+                    model: Spending,
+                    attributes: ["id", "createdAt"],
+                },
+            ],
+            where: {
+                [Op.or]: [
+                    { firstName: { [Op.like]: `${word}%` } },
+                    { lastName: { [Op.like]: `${word}%` } },
+                    { nickName: { [Op.like]: `${word}%` } },
+                    { id: { [Op.like]: `${word}%` } },
+                ],
+            },
+        });
 
         this.status = HttpStatus.OK;
         return res.status(this.status).json(mergeData(this.status, result));
