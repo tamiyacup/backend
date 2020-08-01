@@ -63,8 +63,6 @@ export class UsersService {
                 id,
             },
         });
-        console.log(`user`, user);
-
         if (user) this.status = HttpStatus.OK;
         return res.status(this.status).json(mergeData(this.status, user));
     }
