@@ -23,4 +23,8 @@ export class SpendingController {
     create(@Req() req: any, @Res() res: any) {
         return this.spendingService.create(req, res);
     }
+    @Get()
+    count(@Res() res: any) {
+        return this.spendingService.count(res);
+    }
 }

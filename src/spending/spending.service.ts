@@ -28,4 +28,9 @@ export class SpendingService {
         Spending.create(spendinData);
         return res.status(this.status).json(this.status);
     }
+    async count(res:any) {
+        const countSpending = await this.spendingModel.count();
+        if (countSpending) this.status = HttpStatus.OK;
+        return res.status(this.status).json(mergeData(this.status, countSpending));
+    }
 }
