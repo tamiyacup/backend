@@ -2,8 +2,8 @@ import { Injectable, HttpStatus } from "@nestjs/common";
 import { InjectModel } from "@nestjs/sequelize";
 import { Sequelize } from "sequelize-typescript";
 import { Op } from "sequelize";
-import { CreateUserDto } from "./dto/CreateUserDto.dto";
 import { Users } from "./users.model";
+import { Spending } from "../spending/spending.model";
 import mergeData from "../../utils/mergeData";
 
 const fs = require("fs");
@@ -32,9 +32,7 @@ export class UsersService {
             Tel: req.body.Tel,
         };
 
-        Users.create(userData).then((user) => {
-            
-        });
+        Users.create(userData).then((user) => {});
 
         return res.status(this.status).json(this.status);
     }
@@ -48,6 +46,12 @@ export class UsersService {
     async findOne(id: string, res: any): Promise<Users> {
         console.log(`id`, id);
         const user = await this.userModel.findOne({
+            include: [
+                {
+                    model: Spending,
+                    attributes: ["payToField", "createdAt"],
+                },
+            ],
             where: {
                 id,
             },

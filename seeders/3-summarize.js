@@ -12,10 +12,10 @@ module.exports = {
                 updatedAt: new Date()
             });
         }
-        return queryInterface.bulkInsert("summarize", data, {});
+        return queryInterface.bulkInsert("summarizes", data, {});
     },
 
     down: (queryInterface, Sequelize) => {
-        return queryInterface.bulkDelete("summarize", null, {});
+        return queryInterface.bulkDelete("summarizes", null, {});
     },
 };

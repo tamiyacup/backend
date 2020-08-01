@@ -1,7 +1,7 @@
 "use strict";
 module.exports = {
     up: (queryInterface, Sequelize) => {
-        return queryInterface.createTable("spending", {
+        return queryInterface.createTable("spendings", {
             id: {
                 allowNull: false,
                 autoIncrement: true,
@@ -12,16 +12,13 @@ module.exports = {
                 type: Sequelize.INTEGER,
                 references: { model: "Users", key: "id" },
             },
-            amountUseField: {
+            payToField: {
                 type: Sequelize.INTEGER,
                 defaultValue: 0
             },
-            amountOrder: {
+            payToOrder: {
                 type: Sequelize.INTEGER,
                 defaultValue: 0
-            },
-            time: {
-                type: Sequelize.DATE,
             },
             createdAt: {
                 allowNull: false,
@@ -34,6 +31,6 @@ module.exports = {
         });
     },
     down: (queryInterface, Sequelize) => {
-        return queryInterface.dropTable("spending");
+        return queryInterface.dropTable("spendings");
     },
 };
