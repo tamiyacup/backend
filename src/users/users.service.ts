@@ -38,7 +38,14 @@ export class UsersService {
     }
 
     async findAll(res: any): Promise<Users[]> {
-        const users = await this.userModel.findAll();
+        const users = await this.userModel.findAll({
+            include: [
+                {
+                    model: Spending,
+                    attributes: ["id", "createdAt"],
+                },
+            ],
+        });
         if (users) this.status = HttpStatus.OK;
         return res.status(this.status).json(mergeData(this.status, users));
     }
@@ -49,7 +56,7 @@ export class UsersService {
             include: [
                 {
                     model: Spending,
-                    attributes: ["id", "payToField", "createdAt"],
+                    attributes: ["id", "createdAt"],
                 },
             ],
             where: {
