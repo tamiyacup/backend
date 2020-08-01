@@ -4,10 +4,10 @@ module.exports = {
     up: (queryInterface, Sequelize) => {
         const faker = require("faker");
         const data = [];
-        for (let i = 1; i <= 10; i++) {
+        for (let i = 1; i <= 50; i++) {
             data.push({
-                userId: i,
-                payToField: i,
+                userId: Math.floor(Math.random() * 10) + 1  ,
+                payToField: faker.random.number(),
                 payToOrder:i,
                 createdAt: new Date(),
                 updatedAt: new Date()

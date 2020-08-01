@@ -49,7 +49,7 @@ export class UsersService {
             include: [
                 {
                     model: Spending,
-                    attributes: ["payToField", "createdAt"],
+                    attributes: ["id", "payToField", "createdAt"],
                 },
             ],
             where: {
