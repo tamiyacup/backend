@@ -8,6 +8,6 @@ async function bootstrap() {
     app.use(helmet());
     app.enableCors();
     app.use("/public", express.static(join(__dirname, "..", "/uploads")));
-    await app.listen(3001);
+    await app.listen(3002);
 }
 bootstrap();
