@@ -15,9 +15,9 @@ module.exports = {
 
             });
         }        
-        return queryInterface.bulkInsert("users", data, {});
+        return queryInterface.bulkInsert("Users", data, {});
     },
     down: (queryInterface, Sequelize) => {
-        return queryInterface.bulkDelete("users", null, {});
+        return queryInterface.bulkDelete("Users", null, {});
     },
 };
