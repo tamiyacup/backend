@@ -43,5 +43,5 @@ jobs:
                 port: 22
                 script: | 
                   cd /
-                  cd /home/army/actions-runner/_work/SeedBackEnd/SeedBackEnd 
+                  cd /home/army/actions-runner/_work/tamiyaAPI/tamiyaAPI 
                   pm2 restart ecosystem.config.js

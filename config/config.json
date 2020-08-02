@@ -16,9 +16,9 @@
     "operatorsAliases": false
   },
   "production": {
-    "username": "",
-    "password": "",
-    "database": "",
+    "username": "admin",
+    "password": "f48e2b023f5a5a63453709f3a08b42784e63aa77d2dc7e04",
+    "database": "tamiya",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorsAliases": false
