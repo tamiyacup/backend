@@ -67,13 +67,18 @@ export class UsersService {
         return res.status(this.status).json(mergeData(this.status, user));
     }
 
-    async remove(id: string, res: any): Promise<void> {
+    async remove(id: string, res: any): Promise<Users> {
+        const spending = await Spending.destroy({
+            where: {
+                userId: id,
+            },
+        });
         const user = await Users.destroy({
             where: {
                 id,
             },
         });
-        if (user) this.status = HttpStatus.OK;
+        if (user || spending) this.status = HttpStatus.OK;
         return res.status(this.status).json(this.status);
     }
 

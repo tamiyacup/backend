@@ -1,6 +1,6 @@
 {
     "name": "seed-back-end",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "description": "",
     "author": "",
     "private": true,
@@ -22,7 +22,8 @@
         "seq:migration": "npx sequelize-cli db:migrate",
         "seq:seed": "npx sequelize-cli db:seed:all",
         "seq:seed:undo": "npx sequelize-cli db:seed:undo:all",
-        "seq:migration:undo": "npx sequelize-cli db:migrate:undo:all"
+        "seq:migration:undo": "npx sequelize-cli db:migrate:undo:all",
+        "seq": "npx sequelize-cli db:migrate:undo:all & npx sequelize-cli db:migrate & npx sequelize-cli db:seed:all"
     },
     "dependencies": {
         "@nestjs/common": "^7.1.3",
